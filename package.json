@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "command-line tic tac toe game for two players",
+  "main": "ticTacToe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smmakowski/tic-tac-toe.git"
+  },
+  "author": "Stephen Makowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smmakowski/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/smmakowski/tic-tac-toe#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
