@@ -23,11 +23,57 @@ function displayRows(rows) {
   }
 }
 
-function takeTurn() {
+
+
+// should be run after eachturn is taken
+function checkBoard(rows, letter) {
+  var victory = false;
+
+  // check horizontally
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    var count = 0;
+    for (var j = 0; j < row.length; j++) {
+      if (row[j] === letter) {
+        count += 1;
+      }
+      if (count === 3) {
+        victory = true;
+      }
+    }
+  }
+  //check vertically
+  var firstRow = rows[0];
+  for (var k = 0; k < firstRow.length; k++) {
+    var col = firstRow[k];
+    if (rows[k][0] === letter && rows[k][1] === letter && rows[k][2] === letter) {
+      victory = true;
+    }
+  }
+  // check diag one
+  if (rows[0][0] === letter && rows[1][1] === letter && rows[2][2] === letter) {
+    victory = true;
+  }
+
+  // check diag 2
+  if (rows[0][2] === letter && rows[1][1] === letter && rows[2][0] === letter) {
+    victory = true;
+  }
+
+  return victory;
+}
+
+function takeTurn(player) {
 
 }
 
 function main() {
+  console.log('Welcome to tic tac toe!');
+  console.log('Directions: when prompted select the row and column that you wish to place your X or O');
+
+
+
+
   var rows = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
   displayRows(rows);
 
