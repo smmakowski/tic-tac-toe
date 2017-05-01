@@ -62,7 +62,19 @@ function isVictory(rows, letter) {
 }
 
 function takeTurn(player) {
-
+  prompt.start();
+  var nums = [1, 2, 3]
+  console.log('Please select the row and column of the space you want to place your shape');
+  prompt.get(['row', 'column'], function(err, results) {
+    if (nums.indexOf(row) === -1 || nums.indexOf(column) === -1) {
+      console.log('Not a valid input');
+    } else if (err) {
+      console.log('Error!');
+    } else {
+      board[row][column] = player;
+      console.log('You have placed your shape at ' + row + ', ' + column + '.');
+    }
+  });
 }
 
 function main() {
@@ -78,12 +90,14 @@ function main() {
   inGame = true;
 
   while (inGame) {
-    console.log('Game in progress');
 
-    inGame = false;
-
+    console.log('It\'s ' + player + '\'s turn!')
+    // have player insert their slot
+    takeTurn(player);
+    // display the new board;
+    displayRows(rows);
     // check for victory
-    if (checkBoard) {
+    if (isVictory(rows)) {
       console.log(player + ' has won the game!');
       inGame = false;
     } else {
@@ -93,6 +107,7 @@ function main() {
         player = 'X';
       }
     }
+    inGame = false;
   }
 
   // prompt to start
