@@ -23,10 +23,8 @@ function displayRows(rows) {
   }
 }
 
-
-
 // should be run after eachturn is taken
-function checkBoard(rows, letter) {
+function isVictory(rows, letter) {
   var victory = false;
 
   // check horizontally
@@ -68,14 +66,39 @@ function takeTurn(player) {
 }
 
 function main() {
+  var inGame = false;
   console.log('Welcome to tic tac toe!');
-  console.log('Directions: when prompted select the row and column that you wish to place your X or O');
-
-
+  console.log('Directions: when prompted select the row and column that you wish to place your X or O.');
+  console.log('X will go first. Good Luck!');
+  var player = 'X';
 
 
   var rows = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
   displayRows(rows);
+  inGame = true;
+
+  while (inGame) {
+    console.log('Game in progress');
+
+    inGame = false;
+
+    // check for victory
+    if (checkBoard) {
+      console.log(player + ' has won the game!');
+      inGame = false;
+    } else {
+      if (player === 'X') {
+        player = 'O';
+      } else  if (player === 'O') {
+        player = 'X';
+      }
+    }
+  }
+
+  // prompt to start
+  console.log('finished');
+
+
 
 }
 
